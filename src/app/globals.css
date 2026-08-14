@@ -2,20 +2,20 @@
 
 :root {
   /* Brand palette */
-  --ink: #11302a;
-  --teal: #036264;
-  --mauve: #8f5774;
-  --pink: #e0829d;
-  --blush: #dac4d0;
+  --ink: #0d0b33;
+  --teal: #4c2f6f;
+  --mauve: #52489f;
+  --pink: #c266a7;
+  --blush: #e7c8e7;
 
-  --background: #f8f2f4;
+  --background: #f8f3fa;
   --foreground: var(--ink);
   --accent: var(--pink);
   --accent-foreground: var(--ink);
-  --muted: #5e6f68;
-  --border: #e5d9de;
+  --muted: #6a6389;
+  --border: #e2d7e8;
   --surface: #ffffff;
-  --on-ink: #f3e9ec;
+  --on-ink: #f4eef9;
 }
 
 @theme inline {
