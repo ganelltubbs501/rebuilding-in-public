@@ -13,23 +13,26 @@ export default async function StorePage() {
   const products = await getPublishedProducts();
 
   return (
-    <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6">
-      <h1 className="text-3xl font-extrabold tracking-tight sm:text-4xl">Store</h1>
-      <p className="mt-3 max-w-2xl text-muted">
-        Merch, gear, and finds we like — hand-picked and edited to match the show.
-      </p>
-
-      {products.length === 0 ? (
-        <p className="mt-12 text-muted">
-          The store is empty right now — check back soon.
+    <div className="pt-40 pb-24 sm:pt-52">
+      <div className="mx-auto max-w-6xl px-4 sm:px-8">
+        <p className="label text-teal">Merch & picks</p>
+        <h1 className="headline mt-4 text-[14vw] text-ink sm:text-[6vw]">Store</h1>
+        <p className="mt-6 max-w-2xl text-muted">
+          Merch, gear, and finds we like — hand-picked and edited to match the show.
         </p>
-      ) : (
-        <div className="mt-12 grid grid-cols-2 gap-5 sm:grid-cols-3 lg:grid-cols-4">
-          {products.map((product) => (
-            <ProductCard key={product.id} product={product} />
-          ))}
-        </div>
-      )}
+
+        {products.length === 0 ? (
+          <p className="mt-16 text-muted">
+            The store is empty right now — check back soon.
+          </p>
+        ) : (
+          <div className="mt-16 grid grid-cols-2 gap-5 sm:grid-cols-3 lg:grid-cols-4">
+            {products.map((product) => (
+              <ProductCard key={product.id} product={product} />
+            ))}
+          </div>
+        )}
+      </div>
     </div>
   );
 }

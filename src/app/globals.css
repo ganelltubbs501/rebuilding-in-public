@@ -1,14 +1,21 @@
 @import "tailwindcss";
 
 :root {
-  --background: #fdfcfb;
-  --foreground: #1c1917;
-  --accent: #ea580c;
-  --accent-foreground: #fff7ed;
-  --muted: #78716c;
-  --border: #e7e5e4;
+  /* Brand palette */
+  --ink: #11302a;
+  --teal: #036264;
+  --mauve: #8f5774;
+  --pink: #e0829d;
+  --blush: #dac4d0;
+
+  --background: #f8f2f4;
+  --foreground: var(--ink);
+  --accent: var(--pink);
+  --accent-foreground: var(--ink);
+  --muted: #5e6f68;
+  --border: #e5d9de;
   --surface: #ffffff;
-  --ink: #0c0a09;
+  --on-ink: #f3e9ec;
 }
 
 @theme inline {
@@ -20,8 +27,15 @@
   --color-border: var(--border);
   --color-surface: var(--surface);
   --color-ink: var(--ink);
+  --color-teal: var(--teal);
+  --color-mauve: var(--mauve);
+  --color-pink: var(--pink);
+  --color-blush: var(--blush);
+  --color-on-ink: var(--on-ink);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+  --font-display: var(--font-anton);
+  --font-accent: var(--font-fraunces);
 }
 
 body {
@@ -29,11 +43,83 @@ body {
   color: var(--foreground);
 }
 
+/* Oversized display headlines — the giant condensed wordmark type. */
+.headline {
+  font-family: var(--font-display);
+  text-transform: uppercase;
+  letter-spacing: -0.01em;
+  line-height: 0.86;
+}
+
+/* Ornate italic accent type — used for section titles and pull statements. */
+.accent-text {
+  font-family: var(--font-accent);
+  font-style: italic;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+
+/* Small tracked-out label, e.g. dates, categories, kickers. */
+.label {
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+}
+
+/* Pill button / badge base */
+.pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  border-radius: 999px;
+  padding: 0.55rem 1.25rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  white-space: nowrap;
+  transition: all 150ms ease;
+}
+
+.pill-dark {
+  background: var(--ink);
+  color: var(--on-ink);
+  /* Guarantees a visible edge even when floating over a section that's
+     also --ink (e.g. the home hero) — the pill must never blend into
+     its background. */
+  box-shadow:
+    inset 0 0 0 1px rgba(255, 255, 255, 0.14),
+    0 1px 2px rgba(0, 0, 0, 0.15);
+}
+
+.pill-dark:hover {
+  background: color-mix(in srgb, var(--ink) 85%, var(--pink));
+}
+
+.pill-outline {
+  border: 1px solid color-mix(in srgb, var(--ink) 25%, transparent);
+  color: var(--ink);
+}
+
+.pill-outline:hover {
+  border-color: var(--ink);
+  background: color-mix(in srgb, var(--ink) 6%, transparent);
+}
+
+.pill-accent {
+  background: var(--pink);
+  color: var(--ink);
+}
+
+.pill-accent:hover {
+  background: color-mix(in srgb, var(--pink) 88%, var(--ink));
+}
+
 .prose-podcast h2 {
   margin-top: 2em;
   margin-bottom: 0.6em;
   font-weight: 700;
   font-size: 1.4rem;
+  color: var(--ink);
 }
 
 .prose-podcast h3 {
@@ -41,6 +127,7 @@ body {
   margin-bottom: 0.5em;
   font-weight: 600;
   font-size: 1.15rem;
+  color: var(--ink);
 }
 
 .prose-podcast p {
@@ -50,7 +137,7 @@ body {
 }
 
 .prose-podcast a {
-  color: var(--accent);
+  color: var(--teal);
   text-decoration: underline;
   text-underline-offset: 2px;
 }
@@ -67,14 +154,15 @@ body {
 }
 
 .prose-podcast blockquote {
-  border-left: 3px solid var(--accent);
+  border-left: 3px solid var(--pink);
   padding-left: 1rem;
   font-style: italic;
   color: var(--muted);
 }
 
 .prose-podcast code {
-  background: var(--border);
+  background: var(--blush);
+  color: var(--ink);
   padding: 0.15em 0.4em;
   border-radius: 0.25em;
   font-size: 0.9em;

@@ -7,17 +7,17 @@ export default function AdminDashboardLayout({
   children: React.ReactNode;
 }) {
   return (
-    <div>
+    <div className="pt-28">
       <div className="border-b border-border bg-surface">
         <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-4 sm:px-6">
           <nav className="flex items-center gap-6 text-sm font-medium">
-            <Link href="/admin" className="font-bold">
+            <Link href="/admin" className="font-bold text-ink">
               Admin
             </Link>
-            <Link href="/admin/products" className="text-muted hover:text-foreground">
+            <Link href="/admin/products" className="text-muted hover:text-ink">
               Products
             </Link>
-            <Link href="/admin/products/new" className="text-muted hover:text-foreground">
+            <Link href="/admin/products/new" className="text-muted hover:text-ink">
               Import product
             </Link>
           </nav>

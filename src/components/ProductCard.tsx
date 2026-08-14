@@ -7,9 +7,9 @@ export default function ProductCard({ product }: { product: ProductWithImages })
   return (
     <Link
       href={`/store/${product.slug}`}
-      className="group block overflow-hidden rounded-lg border border-border bg-surface transition hover:border-accent"
+      className="group block overflow-hidden rounded-2xl border border-black/5 bg-surface transition hover:-translate-y-1 hover:shadow-lg"
     >
-      <div className="relative aspect-square w-full overflow-hidden bg-border">
+      <div className="relative aspect-square w-full overflow-hidden bg-blush">
         {image ? (
           <Image
             src={image}
@@ -26,8 +26,8 @@ export default function ProductCard({ product }: { product: ProductWithImages })
         )}
       </div>
       <div className="p-4">
-        <h3 className="line-clamp-2 text-sm font-semibold">{product.title}</h3>
-        <p className="mt-2 font-bold text-accent">
+        <h3 className="line-clamp-2 text-sm font-semibold text-ink">{product.title}</h3>
+        <p className="mt-2 font-bold text-mauve">
           {formatPrice(product.priceCents, product.currency)}
         </p>
       </div>

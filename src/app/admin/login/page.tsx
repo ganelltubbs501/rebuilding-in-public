@@ -29,8 +29,8 @@ export default function AdminLoginPage() {
   }
 
   return (
-    <div className="mx-auto flex min-h-[70vh] max-w-sm flex-col justify-center px-4">
-      <h1 className="text-2xl font-extrabold tracking-tight">Admin login</h1>
+    <div className="mx-auto flex min-h-[80vh] max-w-sm flex-col justify-center px-4">
+      <h1 className="headline text-[13vw] text-ink sm:text-[3.5rem]">Admin</h1>
       <form onSubmit={handleSubmit} className="mt-6 space-y-4">
         <input
           type="password"
@@ -44,7 +44,7 @@ export default function AdminLoginPage() {
         <button
           type="submit"
           disabled={loading}
-          className="w-full rounded-md bg-accent px-4 py-2 font-semibold text-accent-foreground hover:opacity-90 disabled:opacity-50"
+          className="w-full rounded-full bg-accent px-4 py-2 font-semibold text-accent-foreground hover:opacity-90 disabled:opacity-50"
         >
           {loading ? "Signing in…" : "Sign in"}
         </button>
