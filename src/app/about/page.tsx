@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import { siteConfig } from "@/lib/site-config";
 
 export const metadata: Metadata = {
@@ -16,7 +17,19 @@ export default function AboutPage() {
             Business, told before anyone knows how it ends.
           </h1>
 
-          <div className="mt-16 grid gap-10 sm:grid-cols-2">
+          <div className="mt-16 grid gap-10 sm:grid-cols-[minmax(0,280px)_1fr_1fr]">
+            <div className="relative aspect-[3/4] w-full overflow-hidden rounded-2xl border border-black/5 bg-blush sm:row-span-2">
+              <Image
+                src="/images/host/portrait-closeup.jpg"
+                alt="Host of Rebuilding in Public"
+                fill
+                sizes="(min-width: 640px) 280px, 60vw"
+                className="object-cover"
+              />
+              {/* Warm brand-tinted wash so the photo reads as part of the site,
+                  not a raw drop-in snapshot */}
+              <div className="absolute inset-0 bg-mauve/10 mix-blend-multiply" />
+            </div>
             <div className="space-y-4 text-sm leading-relaxed text-ink/80 sm:text-base">
               <p>{siteConfig.description}</p>
               <p>

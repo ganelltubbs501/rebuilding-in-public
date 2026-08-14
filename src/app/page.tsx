@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { siteConfig } from "@/lib/site-config";
 import { getAllPosts } from "@/lib/blog";
 import { getPublishedProducts } from "@/lib/products";
@@ -13,8 +14,27 @@ export default async function Home() {
   return (
     <div>
       {/* Hero */}
-      <section className="bg-ink pt-40 pb-24 text-on-ink sm:pt-52 sm:pb-32">
-        <div className="mx-auto max-w-6xl px-4 sm:px-8">
+      <section className="relative isolate min-h-[640px] overflow-hidden bg-ink pt-40 pb-24 text-on-ink sm:pt-52 sm:pb-32">
+        {/* Photo — full-bleed on mobile, right-anchored column on larger screens */}
+        <div className="absolute inset-0 sm:inset-y-0 sm:left-auto sm:right-0 sm:w-[58%]">
+          <Image
+            src="/images/host/hero-hallway.jpg"
+            alt=""
+            fill
+            priority
+            sizes="(min-width: 640px) 58vw, 100vw"
+            className="object-cover object-top"
+          />
+          {/* Gentle ink wash — harmonizes the photo's color grade with the brand palette
+              without flattening it to monochrome */}
+          <div className="absolute inset-0 bg-ink/15 mix-blend-multiply" />
+          {/* Mobile: uniform dark scrim so overlaid text stays legible everywhere */}
+          <div className="absolute inset-0 bg-ink/60 sm:hidden" />
+          {/* Desktop: fade the left edge of the photo into the hero background */}
+          <div className="hidden bg-gradient-to-r from-ink from-10% via-ink/55 via-30% to-transparent sm:block sm:absolute sm:inset-0" />
+        </div>
+
+        <div className="relative mx-auto max-w-6xl px-4 sm:px-8">
           <p className="label text-pink">The podcast</p>
           <h1 className="headline mt-6 text-[15vw] leading-[0.85] sm:text-[8.5vw]">
             Rebuilding
