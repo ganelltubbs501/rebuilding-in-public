@@ -15,23 +15,22 @@ export default async function Home() {
     <div>
       {/* Hero */}
       <section className="relative isolate min-h-[640px] overflow-hidden bg-ink pt-40 pb-24 text-on-ink sm:pt-52 sm:pb-32">
-        {/* Photo — full-bleed on mobile, right-anchored column on larger screens */}
+        {/* Photo — full-bleed on mobile, right-anchored column on larger screens.
+            The photo's own backdrop is composited in the brand ink/teal palette,
+            so it sits on the section background almost seamlessly. */}
         <div className="absolute inset-0 sm:inset-y-0 sm:left-auto sm:right-0 sm:w-[58%]">
           <Image
-            src="/images/host/hero-hallway.jpg"
+            src="/images/host/hero-portrait.jpg"
             alt=""
             fill
             priority
             sizes="(min-width: 640px) 58vw, 100vw"
             className="object-cover object-top"
           />
-          {/* Gentle ink wash — harmonizes the photo's color grade with the brand palette
-              without flattening it to monochrome */}
-          <div className="absolute inset-0 bg-ink/15 mix-blend-multiply" />
-          {/* Mobile: uniform dark scrim so overlaid text stays legible everywhere */}
-          <div className="absolute inset-0 bg-ink/60 sm:hidden" />
-          {/* Desktop: fade the left edge of the photo into the hero background */}
-          <div className="hidden bg-gradient-to-r from-ink from-10% via-ink/55 via-30% to-transparent sm:block sm:absolute sm:inset-0" />
+          {/* Mobile: light scrim so overlaid text keeps contrast against pale clothing */}
+          <div className="absolute inset-0 bg-ink/35 sm:hidden" />
+          {/* Desktop: soft fade at the seam between the section background and the photo */}
+          <div className="hidden bg-gradient-to-r from-ink via-ink/25 via-15% to-transparent sm:absolute sm:inset-y-0 sm:left-0 sm:block sm:w-1/3" />
         </div>
 
         <div className="relative mx-auto max-w-6xl px-4 sm:px-8">
